@@ -3,7 +3,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - [x] Set up initial Next.js app
 - [x] Set up initial linting
 - [x] Add proof of concept `tidelift-me-up` usage in clients
-- [ ] Fill out usage with options support
+- [x] Fill out usage with options support
 - [ ] Style nicely
 
 ## Getting Started
