@@ -29,6 +29,9 @@ dependencies:
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
+  tidelift-me-up:
+    specifier: ^0.1.3
+    version: link:node_modules/tidelift-me-up
   typescript:
     specifier: 5.1.3
     version: 5.1.3

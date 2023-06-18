@@ -17,6 +17,7 @@
     "next": "13.4.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "tidelift-me-up": "^0.1.3",
     "typescript": "5.1.3"
   },
   "devDependencies": {

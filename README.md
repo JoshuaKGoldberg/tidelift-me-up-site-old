@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 - [x] Set up initial Next.js app
 - [x] Set up initial linting
-- [ ] Add proof of concept `tidelift-me-up` usage in clients
+- [x] Add proof of concept `tidelift-me-up` usage in clients
 - [ ] Fill out usage with options support
 - [ ] Style nicely
 
