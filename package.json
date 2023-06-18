@@ -1,7 +1,7 @@
 {
   "name": "tidelift-me-up-site",
+  "license": "MIT",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -17,7 +17,7 @@
     "next": "13.4.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "tidelift-me-up": "^0.1.3",
+    "tidelift-me-up": "^0.1.4",
     "typescript": "5.1.3"
   },
   "devDependencies": {
