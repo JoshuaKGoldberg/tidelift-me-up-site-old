@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+- [x] Set up initial Next.js app
+- [x] Set up initial linting
+- [ ] Add proof of concept `tidelift-me-up` usage in clients
+- [ ] Fill out usage with options support
+- [ ] Style nicely
+
 ## Getting Started
 
 First, run the development server:
