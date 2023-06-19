@@ -1,4 +1,4 @@
-import { tideliftMeUp } from "tidelift-me-up";
+import { PackageEstimate, tideliftMeUp } from "tidelift-me-up";
 import { PackageOwnership } from "tidelift-me-up";
 
 // todo; surely there's a better place to import this from
@@ -10,7 +10,13 @@ export default async function Home({ searchParams }: PageProps) {
     since: searchParams["since"] || undefined,
     ownership: searchParams["ownership"] as PackageOwnership[],
   };
-  const result = data.username ? await tideliftMeUp(data) : [];
+  let result: Error | PackageEstimate[] | undefined;
+
+  try {
+    result = data.username ? await tideliftMeUp(data) : [];
+  } catch (error) {
+    result = error as Error;
+  }
 
   return (
     <main>
