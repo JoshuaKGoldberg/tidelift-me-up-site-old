@@ -1,5 +1,5 @@
 import { tideliftMeUp } from "tidelift-me-up";
-import { PackageOwnershipForm } from "tidelift-me-up/lib/packageOwnershipForms";
+import { PackageOwnership } from "tidelift-me-up";
 
 // todo; surely there's a better place to import this from
 import { PageProps } from "../../.next/types/app/page";
@@ -8,7 +8,7 @@ export default async function Home({ searchParams }: PageProps) {
   const data = {
     username: searchParams["username"] as string,
     since: searchParams["since"] || undefined,
-    ownership: searchParams["ownership"] as PackageOwnershipForm[],
+    ownership: searchParams["ownership"] as PackageOwnership[],
   };
   const result = data.username ? await tideliftMeUp(data) : [];
 
