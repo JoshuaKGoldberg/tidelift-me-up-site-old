@@ -1,0 +1,13 @@
+/*
+Todo: I'll probably switch this to rainbow-sprinkles, pending...
+https://github.com/wayfair/rainbow-sprinkles/issues/148
+*/
+
+.main,
+.footer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto 0;
+  max-width: 50rem;
+}

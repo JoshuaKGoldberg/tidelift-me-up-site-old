@@ -1,0 +1,17 @@
+.optionsForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  margin: 2rem 0 0.5rem;
+}
+
+.submit {
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding: 1rem 1.5rem;
+  margin: 2rem;
+  cursor: pointer;
+}
