@@ -14,7 +14,7 @@ export default async function Home({ searchParams }: PageProps) {
     since: searchParams["since"] || undefined,
     ownership: searchParams["ownership"] as PackageOwnership[],
   };
-  let result: Error | PackageEstimate[];
+  let result: Error | PackageEstimate[] | undefined;
 
   try {
     result = options.username ? await tideliftMeUp(options) : undefined;

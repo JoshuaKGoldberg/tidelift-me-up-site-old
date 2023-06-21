@@ -1,7 +1,7 @@
 import { PackageEstimate } from "tidelift-me-up";
 
 export interface ResultDisplayProps {
-  result: Error | PackageEstimate[];
+  result: Error | PackageEstimate[] | undefined;
 }
 
 export function ResultDisplay({ result }: ResultDisplayProps) {
