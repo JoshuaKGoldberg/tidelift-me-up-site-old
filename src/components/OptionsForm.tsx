@@ -1,6 +1,19 @@
+import { PackageOwnership } from "tidelift-me-up";
 import styles from "./OptionsForm.module.css";
 
-export function OptionsForm() {
+export interface FormOptions {
+  ownership?: PackageOwnership[];
+  since?: Date;
+  username?: string;
+}
+
+export interface OptionsFormProps {
+  options: FormOptions;
+}
+
+export function OptionsForm({ options }: OptionsFormProps) {
+  const ownerships = new Set(options.ownership);
+
   return (
     <form className={styles.optionsForm}>
       <label className={styles.label} htmlFor="username">
@@ -11,22 +24,33 @@ export function OptionsForm() {
         type="text"
         required
         name="username"
-        defaultValue="joshuakgoldberg"
+        defaultValue={options.username}
       ></input>
 
       <label className={styles.label} htmlFor="since">
         Since
       </label>
-      <input id="since" type="date" name="since"></input>
+      <input
+        defaultValue={options.since && options.since.toString()}
+        id="since"
+        name="since"
+        type="date"
+      ></input>
 
       <label className={styles.label} htmlFor="ownership">
         Ownership
       </label>
 
       <select multiple name="ownership" id="ownership">
-        <option value="author">Author</option>
-        <option value="maintainer">Maintainer</option>
-        <option value="publisher">Publisher</option>
+        <option selected={ownerships.has("author")} value="author">
+          Author
+        </option>
+        <option selected={ownerships.has("maintainer")} value="maintainer">
+          Maintainer
+        </option>
+        <option selected={ownerships.has("publisher")} value="publisher">
+          Publisher
+        </option>
       </select>
 
       <button className={styles.submit} type="submit">

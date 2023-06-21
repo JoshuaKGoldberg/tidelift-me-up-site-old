@@ -9,7 +9,7 @@ import { ResultDisplay } from "~/components/ResultDisplay";
 import { OptionsForm } from "~/components/OptionsForm";
 
 export default async function Home({ searchParams }: PageProps) {
-  const data = {
+  const options = {
     username: searchParams["username"] as string,
     since: searchParams["since"] || undefined,
     ownership: searchParams["ownership"] as PackageOwnership[],
@@ -17,7 +17,7 @@ export default async function Home({ searchParams }: PageProps) {
   let result: Error | PackageEstimate[];
 
   try {
-    result = data.username ? await tideliftMeUp(data) : undefined;
+    result = options.username ? await tideliftMeUp(options) : undefined;
   } catch (error) {
     result = error as Error;
   }
@@ -29,7 +29,7 @@ export default async function Home({ searchParams }: PageProps) {
         <p>
           Finds your npm packages that are eligible for Tidelift funding. 💸
         </p>
-        <OptionsForm />
+        <OptionsForm options={options} />
         <ResultDisplay result={result} />
       </main>
       <footer className={styles.footer}>
