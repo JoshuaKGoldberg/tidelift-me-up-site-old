@@ -8,6 +8,6 @@ https://github.com/wayfair/rainbow-sprinkles/issues/148
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin: 2rem auto 0;
+  margin: 2rem auto;
   max-width: 50rem;
 }
