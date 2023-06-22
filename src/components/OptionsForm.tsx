@@ -12,8 +12,6 @@ export interface OptionsFormProps {
 }
 
 export function OptionsForm({ options }: OptionsFormProps) {
-  const ownerships = new Set(options.ownership);
-
   return (
     <form className={styles.optionsForm}>
       <label className={styles.label} htmlFor="username">
@@ -41,16 +39,15 @@ export function OptionsForm({ options }: OptionsFormProps) {
         Ownership
       </label>
 
-      <select multiple name="ownership" id="ownership">
-        <option selected={ownerships.has("author")} value="author">
-          Author
-        </option>
-        <option selected={ownerships.has("maintainer")} value="maintainer">
-          Maintainer
-        </option>
-        <option selected={ownerships.has("publisher")} value="publisher">
-          Publisher
-        </option>
+      <select
+        defaultValue={options.ownership}
+        multiple
+        name="ownership"
+        id="ownership"
+      >
+        <option value="author">Author</option>
+        <option value="maintainer">Maintainer</option>
+        <option value="publisher">Publisher</option>
       </select>
 
       <button className={styles.submit} type="submit">
