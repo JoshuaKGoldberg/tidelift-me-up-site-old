@@ -1,17 +1,18 @@
 import { PackageEstimate, tideliftMeUp } from "tidelift-me-up";
 import { PackageOwnership } from "tidelift-me-up";
 
-// todo; surely there's a better place to import this from
-import { PageProps } from "../../.next/types/app/page";
-
 import styles from "./page.module.css";
 import { ResultDisplay } from "~/components/ResultDisplay";
 import { OptionsForm } from "~/components/OptionsForm";
 
-export default async function Home({ searchParams }: PageProps) {
+export interface HomeProps {
+  searchParams: Record<string, unknown>;
+}
+
+export default async function Home({ searchParams }: HomeProps) {
   const options = {
     username: searchParams["username"] as string,
-    since: searchParams["since"] || undefined,
+    since: (searchParams["since"] || undefined) as string | undefined,
     ownership: searchParams["ownership"] as PackageOwnership[],
   };
   let result: Error | PackageEstimate[] | undefined;
@@ -25,26 +26,29 @@ export default async function Home({ searchParams }: PageProps) {
   return (
     <>
       <main className={styles.main}>
-        <h1>tidelift-me-up</h1>
-        <p>
-          Finds your npm packages that are eligible for Tidelift funding. 💸
+        <h1 className={styles.h1}>tidelift-me-up</h1>
+        <p className={styles.p}>
+          Find your npm packages eligible for Tidelift funding. 💸
         </p>
         <OptionsForm options={options} />
         <ResultDisplay result={result} />
       </main>
       <footer className={styles.footer}>
+        Insert design credits here.
+        <br />
+        <br />
         <a
           href="https://github.com/JoshuaKGoldberg/tidelift-me-up"
           target="_blank"
         >
-          github.com/JoshuaKGoldberg/tidelift-me-up
+          CLI repo
         </a>{" "}
-        &
+        /{" "}
         <a
           href="https://github.com/JoshuaKGoldberg/tidelift-me-up-site"
           target="_blank"
         >
-          github.com/JoshuaKGoldberg/tidelift-me-up-site
+          Website repo
         </a>
       </footer>
     </>

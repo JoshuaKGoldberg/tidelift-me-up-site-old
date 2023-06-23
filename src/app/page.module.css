@@ -5,9 +5,36 @@ https://github.com/wayfair/rainbow-sprinkles/issues/148
 
 .main,
 .footer {
+  color: var(--color-foreground);
+  max-width: 50rem;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.main {
   align-items: center;
   display: flex;
   flex-direction: column;
   margin: 2rem auto;
-  max-width: 50rem;
+}
+
+.main {
+  margin-top: 10rem;
+}
+
+.h1 {
+  font-size: var(--font-size-hero);
+  font-weight: var(--font-weight-hero);
+  color: var(--color-foreground-bold);
+}
+
+.p {
+  font-size: var(--font-size-large);
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.footer {
+  margin: 5rem auto 2.5rem;
+  text-align: center;
 }

@@ -1,17 +1,124 @@
 .optionsForm {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 100%;
+  max-width: 35rem;
 }
 
-.label {
+.primaryOptions {
+  align-items: flex-end;
+  display: flex;
+  gap: 2rem;
+  margin: 3.5rem 0;
+  width: 100%;
+}
+
+.usernameArea {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.labelPrimary {
   margin: 2rem 0 0.5rem;
+  font-size: var(--font-size-medium);
+}
+
+.inputPrimary {
+  padding: 0.5rem;
+}
+
+.inputPrimary,
+.submit {
+  border-radius: var(--border-radius-large);
+  height: 3rem;
+}
+
+.inputPrimary,
+.inputSecondary {
+  background: white;
+  border: 1px solid var(--colors-border-bold);
+  bottom: 1px;
+  left: 1px;
+  right: 1px;
+  top: 1px;
+}
+
+.inputPrimary,
+.inputSecondary,
+.submit {
+  font-family: inherit;
+  user-select: none;
 }
 
 .submit {
+  background: var(--colors-background-bold);
+  border: none;
   font-weight: bold;
-  font-size: 1.25rem;
-  padding: 1rem 1.5rem;
-  margin: 2rem;
+  font-size: var(--font-size-medium);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+}
+
+.secondaryOptionsArea {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  width: 100%;
+}
+
+.h2 {
+  font-size: var(--font-size-small);
+  font-weight: inherit;
+  text-align: center;
+  font-style: italic;
+}
+
+.secondaryOptionArea {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 50%;
+  text-align: center;
+  border: none;
+}
+
+.secondaryOptions,
+.fieldsetOptions {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.secondaryOptions {
+  gap: 2.5rem;
+}
+
+.secondaryOption {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.labelSecondary,
+.legendSecondary {
+  font-size: var(--font-size-small);
+}
+
+.legendSecondary {
+  margin-bottom: 1rem;
+}
+
+.fieldsetOptions {
+  gap: 1.5rem;
+}
+
+.inputSecondary {
+  border-radius: var(--border-radius-medium);
+  height: 2rem;
+  padding: 0.5rem;
 }

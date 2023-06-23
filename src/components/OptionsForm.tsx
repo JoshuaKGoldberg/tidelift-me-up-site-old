@@ -3,7 +3,7 @@ import styles from "./OptionsForm.module.css";
 
 export interface FormOptions {
   ownership?: PackageOwnership[];
-  since?: Date;
+  since?: string;
   username?: string;
 }
 
@@ -12,47 +12,72 @@ export interface OptionsFormProps {
 }
 
 export function OptionsForm({ options }: OptionsFormProps) {
+  const ownerships = new Set(options.ownership);
+
   return (
     <form className={styles.optionsForm}>
-      <label className={styles.label} htmlFor="username">
-        Username
-      </label>
-      <input
-        id="username"
-        type="text"
-        required
-        name="username"
-        defaultValue={options.username}
-      ></input>
+      <div className={styles.primaryOptions}>
+        <div className={styles.usernameArea}>
+          <label className={styles.labelPrimary} htmlFor="username">
+            Search an npm username
+          </label>
+          <input
+            className={styles.inputPrimary}
+            defaultValue={options.username}
+            name="username"
+            required
+            type="text"
+          ></input>
+        </div>
 
-      <label className={styles.label} htmlFor="since">
-        Since
-      </label>
-      <input
-        defaultValue={options.since && options.since.toString()}
-        id="since"
-        name="since"
-        type="date"
-      ></input>
+        <button className={styles.submit} type="submit">
+          Submit
+        </button>
+      </div>
 
-      <label className={styles.label} htmlFor="ownership">
-        Ownership
-      </label>
+      <div className={styles.secondaryOptionsArea}>
+        <h2 className={styles.h2}>optionally, filter by:</h2>
+        <div className={styles.secondaryOptions}>
+          <div className={styles.secondaryOptionArea}>
+            <label className={styles.labelSecondary} htmlFor="since">
+              Updated Since
+            </label>
+            <input
+              className={styles.inputSecondary}
+              defaultValue={options.since && options.since.toString()}
+              name="since"
+              type="date"
+            ></input>
+          </div>
 
-      <select
-        defaultValue={options.ownership}
-        multiple
-        name="ownership"
-        id="ownership"
-      >
-        <option value="author">Author</option>
-        <option value="maintainer">Maintainer</option>
-        <option value="publisher">Publisher</option>
-      </select>
-
-      <button className={styles.submit} type="submit">
-        submit meee
-      </button>
+          <fieldset className={styles.secondaryOptionArea} name="ownership">
+            <legend className={styles.legendSecondary}>
+              Relationship to Project
+            </legend>
+            <div className={styles.fieldsetOptions}>
+              {(["author", "maintainer", "publisher"] as const).map(
+                (ownershipForm) => (
+                  <div className={styles.secondaryOption} key={ownershipForm}>
+                    <input
+                      defaultChecked={ownerships.has(ownershipForm)}
+                      id={ownershipForm}
+                      type="checkbox"
+                      name={ownershipForm}
+                    />
+                    <label htmlFor={ownershipForm}>
+                      {upperFirst(ownershipForm)}
+                    </label>
+                  </div>
+                )
+              )}
+            </div>
+          </fieldset>
+        </div>
+      </div>
     </form>
   );
+}
+
+function upperFirst(text: string) {
+  return text[0].toUpperCase() + text.slice(1);
 }
