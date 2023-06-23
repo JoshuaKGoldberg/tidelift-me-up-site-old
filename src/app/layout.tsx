@@ -5,8 +5,7 @@ const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Tidelift Me Up",
-  description:
-    "Finds your npm packages that are eligible for Tidelift funding. 💸",
+  description: "Find your npm packages eligible for Tidelift funding. 💸",
 };
 
 export default function RootLayout({ children }: React.PropsWithChildren) {
